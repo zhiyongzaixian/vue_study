@@ -2,13 +2,6 @@
 	<div>
 		<p>Home 组件</p>
 		<button @click="handleClick">触发自定义事件</button>
-		<slot name="left" :user='user'></slot>
-		<p>------ 主公 -------</p>
-		<slot name="right" :user='user'></slot>
-		<br>
-		<slot>我是默认的插槽数据</slot>
-		<br>
-		<br>
 	</div>
 </template>
 
@@ -17,11 +10,7 @@
 		props: ['getHomeMsg'],
 		data(){
 			return {
-				msg: 'Home 子组件的数据',
-				user: {
-					firstName: 'curry',
-					lastName:'stephe'
-				}
+				msg: 'Home 子组件的数据'
 			}
 		},
 		methods: {

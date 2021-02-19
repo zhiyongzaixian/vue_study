@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import rotuer from './router'
+
 
 // 关闭提示
 Vue.config.productionTip = false
@@ -21,5 +21,4 @@ Vue.prototype.$Bus = new Vue()
 
 const vm = new Vue({
   render: h => h(App),
-	rotuer
 }).$mount('#app')

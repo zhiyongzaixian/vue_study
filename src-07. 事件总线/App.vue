@@ -12,18 +12,7 @@
 		</div>
 		
 		<!-- 内容区 -->
-		<Home ref='home'>
-			 <template v-slot:left='mySlotProps'>
-			    <h1>Home左护法 {{mySlotProps.user.firstName}}</h1>
-			  </template>
-				<template v-slot:right='{user}'>
-				   <h1>Home右护法 {{user.lastName}}</h1>
-				 </template>
-				 
-				 <template>
-					 <p>我是导入的内容。。。</p>
-				 </template>
-		</Home>
+		<Home ref='home'></Home>
 		<Personal @xx='handleXX'></Personal>
   </div>
 </template>
