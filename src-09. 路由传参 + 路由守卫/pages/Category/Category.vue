@@ -1,17 +1,13 @@
 <template>
 	<div>
-		Personal 组件
-		<button @click="handleClick">测试</button>
+		<h2>Category 组件</h2>
+		<p>query参数： {{this.$route.query.a}} --- {{this.$route.query.b}}</p>
 	</div>
 </template>
 
 <script>
 	export default {
-		methods: {
-			handleClick(){
-				this.$emit('xx')
-			}
-		}
+		
 	}
 </script>
 
