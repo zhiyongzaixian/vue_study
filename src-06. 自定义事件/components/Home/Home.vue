@@ -16,7 +16,6 @@
 		methods: {
 			handleClick(){
 				this.$emit('myEvent', this.msg)
-				this.$Bus.$emit('myBus', this.msg)
 			}
 		}
 	}

@@ -12,41 +12,32 @@
 		</div>
 		
 		<!-- 内容区 -->
-		<Home ref='home'></Home>
-		<Personal></Personal>
+		
+		<!-- 动态组件 -->
+		<keep-alive :exclude='["Personal"]'>
+			<component :is='comName'></component>
+		</keep-alive>
   </div>
 </template>
 
 <script>
 import Home from './components/Home/Home.vue'
-import Personal from './components/Personal/Personal.vue'
+// import Personal from './components/Personal/Personal.vue'
 export default {
 	data(){
 		return {
-			comName: 'Home',
+			comName: 'Home'
 		}
 	},
 	components:{
 		Home: Home, 
-		Personal // 同步加载
-		// Personal: () => import('./components/Personal/Personal.vue') // 异步加载
+		Personal: () => import('./components/Personal/Personal.vue') // 异步加载
+		// Personal // 同步加载
 	},
 	methods: {
 		changeTab(comName){
 			this.comName = comName
-		},
-	},
-	beforeMount() {
-		console.log(this)
-		this.$Bus.$on('myBus', (msg) => {
-			console.log('事件总线自定义事件被触发')
-		})
-	},
-	mounted() {
-		this.$refs.home.$on('myEvent', (msg) => {
-			console.log('自定义事件被触发')
-			console.log('App组件： 获取到来自Home组件的数据', msg)
-		})
+		}
 	}
 }
 </script>

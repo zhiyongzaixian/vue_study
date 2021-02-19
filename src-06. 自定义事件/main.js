@@ -8,16 +8,6 @@ Vue.config.productionTip = false
 //   console.log('全局错误捕获')
 // 	console.log(info)
 // }
-
-
-Vue.prototype.$Bus = new Vue()
-/* 
- 组件实例： this
- 应用实例： vm
- 
- 
- */
-
-const vm = new Vue({
+new Vue({
   render: h => h(App),
 }).$mount('#app')

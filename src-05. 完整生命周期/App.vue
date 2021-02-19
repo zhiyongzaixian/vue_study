@@ -12,8 +12,11 @@
 		</div>
 		
 		<!-- 内容区 -->
-		<Home ref='home'></Home>
-		<Personal></Personal>
+		
+		<!-- 动态组件 -->
+		<keep-alive :exclude='["Personal"]'>
+			<component :is='comName' :getHomeMsg='getHomeMsg'></component>
+		</keep-alive>
   </div>
 </template>
 
@@ -35,18 +38,19 @@ export default {
 		changeTab(comName){
 			this.comName = comName
 		},
+		getHomeMsg(msg){
+			console.log(msg)
+		}
 	},
-	beforeMount() {
-		console.log(this)
-		this.$Bus.$on('myBus', (msg) => {
-			console.log('事件总线自定义事件被触发')
-		})
-	},
-	mounted() {
-		this.$refs.home.$on('myEvent', (msg) => {
-			console.log('自定义事件被触发')
-			console.log('App组件： 获取到来自Home组件的数据', msg)
-		})
+	errorCaptured(errObj, errVM, errMsg){
+		console.log('获取来自后代组件的错误。。。')
+		// console.log(errObj.message)
+		// console.log(errVM)
+		// console.log(errMsg)
+		
+		// Home子组件实例.getHomeMsg(Home子组件实例.msg)
+		errVM.getHomeMsg(errVM.msg)
+		return false // 局部捕获，阻止错误传播到全局
 	}
 }
 </script>

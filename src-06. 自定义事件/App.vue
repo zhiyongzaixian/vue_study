@@ -36,12 +36,12 @@ export default {
 			this.comName = comName
 		},
 	},
-	beforeMount() {
-		console.log(this)
-		this.$Bus.$on('myBus', (msg) => {
-			console.log('事件总线自定义事件被触发')
-		})
-	},
+	// beforeMount() {
+	// 	console.log(this.$refs.home)
+	// 	this.$refs.home.$on('myEvent', () => {
+	// 		console.log('自定义事件被触发')
+	// 	})
+	// },
 	mounted() {
 		this.$refs.home.$on('myEvent', (msg) => {
 			console.log('自定义事件被触发')

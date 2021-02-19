@@ -1,7 +1,6 @@
 <template>
 	<div>
-		<p>Home 组件</p>
-		<button @click="handleClick">触发自定义事件</button>
+		Home 组件
 	</div>
 </template>
 
@@ -13,12 +12,12 @@
 				msg: 'Home 子组件的数据'
 			}
 		},
-		methods: {
-			handleClick(){
-				this.$emit('myEvent', this.msg)
-				this.$Bus.$emit('myBus', this.msg)
-			}
-		}
+		mounted() {
+			// console.log('Home mounted')
+			console.log(a)
+			this.getHomeMsg(this.msg)
+		},
+		
 	}
 </script>
 
